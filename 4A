@@ -1,0 +1,25 @@
+create table heroes_tb(
+heroes_id int not null auto_increment primary key,
+heroes_name varchar(30),
+heroes_photo text,
+type_id int,
+
+constraint fk_tb_heroes_type
+foreign key(type_id) references type_tb(type_id) on update cascade on delete cascade
+)
+
+create table type_tb
+(
+type_id int not null auto_increment primary key,
+type_name varchar(20)
+)
+
+insert into heroes_tb(heroes_name, type_id)
+values("superman", 1);
+insert into heroes_tb(heroes_name, type_id)
+values("batman", 2);
+
+insert into type_tb( type_name) values("attack");
+insert into type_tb( type_name) values("defense");
+
+//
